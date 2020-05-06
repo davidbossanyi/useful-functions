@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>usefulfunctions documentation &#8212; usefulfunctions  documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">usefulfunctions  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="usefulfunctions-documentation">
+<h1>usefulfunctions documentation<a class="headerlink" href="#usefulfunctions-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="module-usefulfunctions">
+<span id="useful-functions"></span><h1>Useful Functions<a class="headerlink" href="#module-usefulfunctions" title="Permalink to this headline">¶</a></h1>
+<p>Functions that I find useful but don’t want to write out each time.</p>
+<dl class="py function">
+<dt id="usefulfunctions.format_axes">
+<code class="sig-prename descclassname">usefulfunctions.</code><code class="sig-name descname">format_axes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">labelsize</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">linewidth</span><span class="o">=</span><span class="default_value">1.4</span></em>, <em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">lengthratio</span><span class="o">=</span><span class="default_value">0.5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/usefulfunctions.html#format_axes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#usefulfunctions.format_axes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust axes lines and ticks for optimum visibility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – An Axes object on which to apply the formatting.</p></li>
+<li><p><strong>labelsize</strong> (<em>float</em><em>, </em><em>optional</em>) – Fontsize of the tick labels. The default is 20.</p></li>
+<li><p><strong>linewidth</strong> (<em>float</em><em>, </em><em>optional</em>) – Width in pt of the axes lines and ticks. The default is 1.4.</p></li>
+<li><p><strong>length</strong> (<em>float</em><em>, </em><em>optional</em>) – Length in pt of the major ticks. The default is 6.</p></li>
+<li><p><strong>lengthratio</strong> (<em>float</em><em>, </em><em>optional</em>) – Ratio of minor to major tick lengths. The default is 0.5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The modified Axes object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="usefulfunctions.fsci">
+<code class="sig-prename descclassname">usefulfunctions.</code><code class="sig-name descname">fsci</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/usefulfunctions.html#fsci"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#usefulfunctions.fsci" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render numbers in proper scientific notation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – Number to render in scientific notation.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fsci_x</strong> – Rendered version of x.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="usefulfunctions.linearticks">
+<code class="sig-prename descclassname">usefulfunctions.</code><code class="sig-name descname">linearticks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">xmajorsep</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xminorsep</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ymajorsep</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">yminorsep</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/usefulfunctions.html#linearticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#usefulfunctions.linearticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set linear tick spacings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – An Axes object on which to apply the formatting.</p></li>
+<li><p><strong>xmajorsep</strong> (<em>float</em><em>, </em><em>optional</em>) – Spacing betwen major xticks. The default is None.</p></li>
+<li><p><strong>xminorsep</strong> (<em>float</em><em>, </em><em>optional</em>) – Spacing betwen minor xticks. The default is None.</p></li>
+<li><p><strong>ymajorsep</strong> (<em>float</em><em>, </em><em>optional</em>) – Spacing betwen major yticks. The default is None.</p></li>
+<li><p><strong>yminorsep</strong> (<em>float</em><em>, </em><em>optional</em>) – Spacing betwen minor yticks. The default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The modified Axes object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="usefulfunctions.logticks">
+<code class="sig-prename descclassname">usefulfunctions.</code><code class="sig-name descname">logticks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">which</span><span class="o">=</span><span class="default_value">'both'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/usefulfunctions.html#logticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#usefulfunctions.logticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force 10 logarithmic ticks per decade.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – An Axes object on which to apply the formatting.</p></li>
+<li><p><strong>which</strong> (<em>str</em><em>, </em><em>optional</em>) – Which axes to apply the logarithmic ticks to. Can be ‘x’, ‘y’ or ‘both’. The default is ‘both’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The modified Axes object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="usefulfunctions.resample">
+<code class="sig-prename descclassname">usefulfunctions.</code><code class="sig-name descname">resample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">new_x</span></em>, <em class="sig-param"><span class="n">smoothing</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/usefulfunctions.html#resample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#usefulfunctions.resample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolate a dataset (x, y) onto a new set of points x with optional smoothing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>numpy.ndarray</em>) – 1D array of original x points.</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em>) – 1D array of original y points.</p></li>
+<li><p><strong>new_x</strong> (<em>numpy.ndarray</em>) – 1D array of new x points.</p></li>
+<li><p><strong>smoothing</strong> (<em>float</em><em>, </em><em>optional</em>) – Amount of smoothing to do. The default is 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>new_y</strong> – The resampled y values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">usefulfunctions documentation</a></li>
+<li><a class="reference internal" href="#module-usefulfunctions">Useful Functions</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">usefulfunctions  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, David Bossanyi.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.
+    </div>
+  </body>
+</html>
