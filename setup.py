@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='usefulfunctions',
 
-    version='0.0.1',
+    version='0.0.2',
 
     description='Functions that I find useful but don\'t want to write out each time.',
 
@@ -39,6 +39,6 @@ setup(
 
     python_requires='>=3.7',
 
-    install_requires=['numpy>=1.18.1','scipy>=1.4.1','matplotlib>=3.1.2'],
+    install_requires=['numpy>=1.18.1','scipy>=1.4.1','matplotlib>=3.1.2','pandas>=1.0.3'],
 
 )

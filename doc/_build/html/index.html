@@ -42,6 +42,30 @@
 <span id="useful-functions"></span><h1>Useful Functions<a class="headerlink" href="#module-usefulfunctions" title="Permalink to this headline">¶</a></h1>
 <p>Functions that I find useful but don’t want to write out each time.</p>
 <dl class="py function">
+<dt id="usefulfunctions.csv2ana">
+<code class="sig-prename descclassname">usefulfunctions.</code><code class="sig-name descname">csv2ana</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filepath</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">datatype</span></em>, <em class="sig-param"><span class="n">timescale</span></em>, <em class="sig-param"><span class="n">time_on_columns</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">dropna</span><span class="o">=</span><span class="default_value">'time'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/usefulfunctions.html#csv2ana"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#usefulfunctions.csv2ana" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert csv files to the .ana format required by OPTIMUS.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>str</em>) – Full path to the csv file.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name of the dataset.</p></li>
+<li><p><strong>datatype</strong> (<em>str</em>) – One of the OPTIMUS datatypes, e.g. ‘TAVIS’.</p></li>
+<li><p><strong>timescale</strong> (<em>str</em>) – One of the OPTIMUS timescales, e.g. ‘ps’.</p></li>
+<li><p><strong>time_on_columns</strong> (<em>bool</em><em>, </em><em>optional</em>) – True if the columns of the csv file are times. The default is True.</p></li>
+<li><p><strong>dropna</strong> (<em>str</em><em>, </em><em>optional</em>) – Whether to remove NaN dy deleting timepoints (‘time’) or wavelengths (‘wavelength’). The default is ‘time’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="usefulfunctions.format_axes">
 <code class="sig-prename descclassname">usefulfunctions.</code><code class="sig-name descname">format_axes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">labelsize</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">linewidth</span><span class="o">=</span><span class="default_value">1.4</span></em>, <em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">lengthratio</span><span class="o">=</span><span class="default_value">0.5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/usefulfunctions.html#format_axes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#usefulfunctions.format_axes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adjust axes lines and ticks for optimum visibility.</p>

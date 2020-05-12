@@ -3,7 +3,64 @@
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import numpy as np
+import pandas as pd
 from scipy.interpolate import UnivariateSpline
+
+
+def csv2ana(filepath, name, datatype, timescale, time_on_columns=True, dropna='time'):
+    """
+    Convert csv files to the .ana format required by OPTIMUS.
+
+    Parameters
+    ----------
+    filepath : str
+        Full path to the csv file.
+    name : str
+        Name of the dataset.
+    datatype : str
+        One of the OPTIMUS datatypes, e.g. 'TAVIS'.
+    timescale : str
+        One of the OPTIMUS timescales, e.g. 'ps'.
+    time_on_columns : bool, optional
+        True if the columns of the csv file are times. The default is True.
+    dropna : str, optional
+        Whether to remove NaN dy deleting timepoints ('time') or wavelengths ('wavelength'). The default is 'time'.
+
+    Returns
+    -------
+    None.
+
+    """
+    data = pd.read_csv(filepath, header=0, index_col=0)
+    if time_on_columns:
+        data = data.T
+    dropna_axis = 1 if dropna == 'wavelength' else 0
+    data.dropna(how='any', inplace=True, axis=dropna_axis)
+    wavelengths = data.columns.values
+    times = np.array([float(x) for x in data.index.values])
+    matrix = data.values
+    data = pd.DataFrame(index=times, columns=wavelengths, data=matrix)
+    data.to_csv(filepath.replace('data', 'data_pyldm'), header=True, index=True)
+    savefilepath = filepath.replace('.csv', '.ana')
+    with open(savefilepath, 'w') as f:
+        f.write('%FILENAME={0}\r'.format(name))
+        f.write('%DATATYPE={0}\r'.format(datatype))
+        f.write('%TIMESCALE={0}\r'.format(timescale))
+        f.write('%TIMELIST=')
+        for time in times:
+            if time == times[-1]:
+                f.write('{0}\r'.format(time))
+            else:
+                f.write('{0} '.format(time))      
+        f.write('%WAVELENGTHLIST=')
+        for wave in wavelengths:
+            if wave == wavelengths[-1]:
+                f.write('{0}\r'.format(wave))
+            else:
+                f.write('{0} '.format(wave))
+        f.write('%INTENSITYMATRIX=\r')
+        np.savetxt(f, matrix, delimiter=' ', newline='\r')
+    return
 
 
 def fsci(x):
