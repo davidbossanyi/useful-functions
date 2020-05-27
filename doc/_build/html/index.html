@@ -41,6 +41,41 @@
 <div class="section" id="module-usefulfunctions">
 <span id="useful-functions"></span><h1>Useful Functions<a class="headerlink" href="#module-usefulfunctions" title="Permalink to this headline">¶</a></h1>
 <p>Functions that I find useful but don’t want to write out each time.</p>
+<dl class="py class">
+<dt id="usefulfunctions.MinorSymLogLocator">
+<em class="property">class </em><code class="sig-prename descclassname">usefulfunctions.</code><code class="sig-name descname">MinorSymLogLocator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">linthresh</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/usefulfunctions.html#MinorSymLogLocator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#usefulfunctions.MinorSymLogLocator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dynamically find minor tick positions based on the positions of major ticks for a symlog scaling.</p>
+<dl class="py attribute">
+<dt id="usefulfunctions.MinorSymLogLocator.linthresh">
+<code class="sig-name descname">linthresh</code><a class="headerlink" href="#usefulfunctions.MinorSymLogLocator.linthresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>The same linthresh value used when setting the symlog scale.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="usefulfunctions.MinorSymLogLocator.tick_values">
+<code class="sig-name descname">tick_values</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vmin</span></em>, <em class="sig-param"><span class="n">vmax</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/usefulfunctions.html#MinorSymLogLocator.tick_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#usefulfunctions.MinorSymLogLocator.tick_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the values of the located ticks given <strong>vmin</strong> and <strong>vmax</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get tick locations with the vmin and vmax values defined
+automatically for the associated <code class="xref py py-attr docutils literal notranslate"><span class="pre">axis</span></code> simply call
+the Locator instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">loc</span><span class="p">))</span>
+<span class="go">&lt;type &#39;Locator&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">loc</span><span class="p">())</span>
+<span class="go">[1, 2, 3, 4]</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
 <dt id="usefulfunctions.csv2ana">
 <code class="sig-prename descclassname">usefulfunctions.</code><code class="sig-name descname">csv2ana</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filepath</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">datatype</span></em>, <em class="sig-param"><span class="n">timescale</span></em>, <em class="sig-param"><span class="n">time_on_columns</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">dropna</span><span class="o">=</span><span class="default_value">'time'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/usefulfunctions.html#csv2ana"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#usefulfunctions.csv2ana" title="Permalink to this definition">¶</a></dt>

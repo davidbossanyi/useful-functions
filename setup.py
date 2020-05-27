@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='usefulfunctions',
 
-    version='0.0.2',
+    version='0.0.3',
 
     description='Functions that I find useful but don\'t want to write out each time.',
 

@@ -7,6 +7,41 @@ import pandas as pd
 from scipy.interpolate import UnivariateSpline
 
 
+class MinorSymLogLocator(mticker.Locator):
+    """
+    Dynamically find minor tick positions based on the positions of major ticks for a symlog scaling.
+    
+    Attributes
+    ----------
+    linthresh : float
+        The same linthresh value used when setting the symlog scale.
+        
+    """
+    
+    def __init__(self, linthresh):
+        #super().__init__()
+        self.linthresh = linthresh
+
+    def __call__(self):
+        majorlocs = self.axis.get_majorticklocs()
+        # iterate through minor locs
+        minorlocs = []
+        # handle the lowest part
+        for i in range(1, len(majorlocs)):
+            majorstep = majorlocs[i] - majorlocs[i-1]
+            if abs(majorlocs[i-1] + majorstep/2) < self.linthresh:
+                ndivs = 10
+            else:
+                ndivs = 9
+            minorstep = majorstep / ndivs
+            locs = np.arange(majorlocs[i-1], majorlocs[i], minorstep)[1:]
+            minorlocs.extend(locs)
+        return self.raise_if_exceeds(np.array(minorlocs))
+
+    def tick_values(self, vmin, vmax):
+        raise NotImplementedError('Cannot get tick locations for a {0} type.'.format(type(self)))
+
+
 def csv2ana(filepath, name, datatype, timescale, time_on_columns=True, dropna='time'):
     """
     Convert csv files to the .ana format required by OPTIMUS.

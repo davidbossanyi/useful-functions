@@ -44,6 +44,41 @@
 <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">UnivariateSpline</span>
 
 
+<div class="viewcode-block" id="MinorSymLogLocator"><a class="viewcode-back" href="../index.html#usefulfunctions.MinorSymLogLocator">[docs]</a><span class="k">class</span> <span class="nc">MinorSymLogLocator</span><span class="p">(</span><span class="n">mticker</span><span class="o">.</span><span class="n">Locator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dynamically find minor tick positions based on the positions of major ticks for a symlog scaling.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    linthresh : float</span>
+<span class="sd">        The same linthresh value used when setting the symlog scale.</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linthresh</span><span class="p">):</span>
+        <span class="c1">#super().__init__()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linthresh</span> <span class="o">=</span> <span class="n">linthresh</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">majorlocs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="o">.</span><span class="n">get_majorticklocs</span><span class="p">()</span>
+        <span class="c1"># iterate through minor locs</span>
+        <span class="n">minorlocs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># handle the lowest part</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">majorlocs</span><span class="p">)):</span>
+            <span class="n">majorstep</span> <span class="o">=</span> <span class="n">majorlocs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">majorlocs</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">majorlocs</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">majorstep</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">linthresh</span><span class="p">:</span>
+                <span class="n">ndivs</span> <span class="o">=</span> <span class="mi">10</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ndivs</span> <span class="o">=</span> <span class="mi">9</span>
+            <span class="n">minorstep</span> <span class="o">=</span> <span class="n">majorstep</span> <span class="o">/</span> <span class="n">ndivs</span>
+            <span class="n">locs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">majorlocs</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">majorlocs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">minorstep</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="n">minorlocs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">locs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">raise_if_exceeds</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">minorlocs</span><span class="p">))</span>
+
+<div class="viewcode-block" id="MinorSymLogLocator.tick_values"><a class="viewcode-back" href="../index.html#usefulfunctions.MinorSymLogLocator.tick_values">[docs]</a>    <span class="k">def</span> <span class="nf">tick_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Cannot get tick locations for a </span><span class="si">{0}</span><span class="s1"> type.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span></div></div>
+
+
 <div class="viewcode-block" id="csv2ana"><a class="viewcode-back" href="../index.html#usefulfunctions.csv2ana">[docs]</a><span class="k">def</span> <span class="nf">csv2ana</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">timescale</span><span class="p">,</span> <span class="n">time_on_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert csv files to the .ana format required by OPTIMUS.</span>
